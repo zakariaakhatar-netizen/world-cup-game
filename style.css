@@ -1,0 +1,38 @@
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;color:#fff;font-family:'Baloo 2','Trebuchet MS',sans-serif;background:repeating-linear-gradient(90deg,#0b6e3a 0 90px,#0e7c43 90px 180px);min-height:100vh}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:#08331d;border-bottom:6px solid #fff}
+h1{margin:0;font-size:clamp(1.1rem,3.4vw,2.2rem);font-weight:800;line-height:1.1}small{opacity:.85;font-size:clamp(.8rem,2vw,1.1rem)}
+button,select,input{font:inherit}
+button{cursor:pointer;border:0;border-radius:12px;padding:8px 14px;font-weight:700;background:#1d5c3a;color:#fff}
+button:hover:not(:disabled){filter:brightness(1.25)}button:disabled{cursor:default}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+#setup{max-width:640px;margin:18px auto;padding:18px;background:#08331dcc;border-radius:20px;display:grid;gap:10px}
+#setup label{display:grid;gap:3px;font-size:1.05rem}#setup input,#setup select{padding:8px 10px;border-radius:10px;border:3px solid #5fae82;font-size:1.1rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.big{background:#ffd400;color:#111;font-size:1.5rem;padding:12px}
+#scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;padding:12px;max-width:1300px;margin:auto}
+.tm{background:#08331d;border-radius:16px;border-top:12px solid var(--c);padding:6px 12px;text-align:center;transition:transform .2s}
+.tm.on{outline:5px solid #fff;transform:scale(1.05)}.tm b{font-size:1.4rem}.sc{font-size:3.2rem;font-weight:800;line-height:1}
+#turn{text-align:center;font-size:clamp(1.3rem,3vw,2rem);font-weight:800;padding:4px}
+#grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:1000px;margin:8px auto 24px;padding:0 14px}
+@media(max-width:700px){#grid{grid-template-columns:repeat(4,1fr)}}
+.tile{aspect-ratio:1;border-radius:50%;font-size:clamp(1.4rem,4.5vw,3rem);font-weight:800;background:radial-gradient(circle at 35% 30%,#fff 0 55%,#cfd8dc);color:#111;border:6px solid #111;box-shadow:0 6px 0 #0007;padding:0;transition:transform .15s}
+.tile:hover:not(:disabled){transform:translateY(-5px) rotate(-8deg)}.tile:disabled{opacity:.4}
+.modal{position:fixed;inset:0;background:#000b;z-index:40;display:grid;place-items:center;padding:12px}
+.qcard{background:#fff;color:#12301f;border-radius:20px;padding:16px;max-width:760px;width:100%;max-height:92vh;overflow:auto;display:grid;gap:10px}
+.qcard button{background:#e4f2ea;color:#12301f}.qcard .big{background:#ffd400}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+#tl{font-size:1.4rem}#time{font-size:1.8rem;font-weight:800;margin-right:6px}
+#qt{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800}
+#ans{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#ans button{font-size:clamp(1.1rem,2.4vw,1.6rem);padding:14px 8px;border:3px solid #9cc9b0}
+#ans button.ok{background:#2fb34a;color:#fff}#ans button.no{background:#e63946;color:#fff}#ex{min-height:1.5em;font-size:1.1rem}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px}.chips button.sel{outline:4px solid #111}
+.acts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+#banner{position:fixed;left:50%;top:16%;transform:translateX(-50%);opacity:0;pointer-events:none;padding:16px 28px;border-radius:18px;font-size:clamp(1.3rem,4vw,2.6rem);font-weight:800;z-index:70;text-align:center;max-width:92vw;border:5px solid #fff;color:#fff}
+#banner.show{animation:pop 2.3s}
+@keyframes pop{0%{opacity:0;transform:translateX(-50%) scale(.4) rotate(-6deg)}12%{opacity:1;transform:translateX(-50%) scale(1.12) rotate(3deg)}22%{transform:translateX(-50%) scale(1)}85%{opacity:1}100%{opacity:0;transform:translateX(-50%) scale(.9)}}
+.cf{position:fixed;top:-14px;width:10px;height:16px;z-index:80;animation:fall linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}

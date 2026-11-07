@@ -1,0 +1,18 @@
+/* Question bank: built from checked templates (exactly one correct answer each). */
+/* [adjective, comparative, superlative, type, noun1, noun2]  types: s=short, d=double consonant, y=ends in -y, l=long, i=irregular */
+const A=[['tall','taller','tallest','s','The goalkeeper','the referee'],['fast','faster','fastest','s','The striker','the defender'],['strong','stronger','strongest','s','My brother','my cousin'],['long','longer','longest','s','The match','the break'],['young','younger','youngest','s','Sara','her sister'],['old','older','oldest','s','The coach','the players'],['small','smaller','smallest','s','The ball','the stadium'],['cheap','cheaper','cheapest','s','This shirt','that shirt'],['new','newer','newest','s','The jersey','the old jersey'],['cold','colder','coldest','s','The water','the tea'],
+['big','bigger','biggest','d','The stadium','the school'],['hot','hotter','hottest','d','Summer','winter'],
+['happy','happier','happiest','y','The winners','the losers'],['easy','easier','easiest','y','This question','that question'],['heavy','heavier','heaviest','y','The trophy','the ball'],['noisy','noisier','noisiest','y','The crowd','the library'],['funny','funnier','funniest','y','This video','that video'],['lucky','luckier','luckiest','y','Our team','their team'],
+['famous','more famous','most famous','l','The player','the referee'],['expensive','more expensive','most expensive','l','The tickets','the snacks'],['popular','more popular','most popular','l','Football','tennis'],['exciting','more exciting','most exciting','l','The final','the first match'],['beautiful','more beautiful','most beautiful','l','The trophy','the ball'],['important','more important','most important','l','The final','a friendly match'],['difficult','more difficult','most difficult','l','This test','that test'],
+['good','better','best','i','Our goalkeeper','their goalkeeper'],['bad','worse','worst','i','The weather today','the weather yesterday']];
+const EX={s:'Short adjective: add -er / -est (tall → taller → tallest).',d:'One syllable ending in vowel + consonant: double the last letter (big → bigger → biggest).',y:'Ends in -y: change y to i (happy → happier → happiest).',l:'Long adjective: use more … / the most … (famous → more famous → the most famous).',i:'Irregular: good → better → the best; bad → worse → the worst.'};
+const QB=[],Q=(q,c,w,e)=>QB.push({q,c,w,e}),uq=(a,n)=>[...new Set(a)].filter(x=>x!==n);
+const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+A.forEach(([b,c,s,k,n1,n2],i)=>{const bad=k==='l'?b+'er':'more '+b,bad3=k==='l'?b+'est':'most '+b,L=b.slice(-1),e=EX[k];
+Q(`${n1} is ___ than ${n2}.`,c,[b,'the '+s,bad],e);
+Q(`${n1} is ___ of all.`,'the '+s,[b,c,'the '+c],e);
+Q(`Choose the correct comparative of "${b}".`,c,uq([bad,b+'er',b+'est',b.slice(0,-1)+'er','the '+s,b+L+'er'],c).slice(0,3),e);
+Q(`Choose the correct superlative of "${b}".`,s,uq([bad3,b+'est',bad,b.slice(0,-1)+'est',c,b+L+'est'],s).slice(0,3),e);
+Q('Choose the correct sentence.',`${n1} is ${c} than ${n2}.`,[`${n1} is ${b} than ${n2}.`,`${n1} is ${c} that ${n2}.`,`${n1} is ${bad} than ${n2}.`],e);
+Q('Choose the correct sentence.',`${n1} is the ${s} of all.`,[`${n1} is ${s} of all.`,`${n1} is the ${c} of all.`,`${n1} is the ${k==='l'?b+'est':'most '+b} of all.`],e);
+Q(i%2?`Comparative or superlative? "${n1} is the ${s} of all."`:`Comparative or superlative? "${n1} is ${c} than ${n2}."`,i%2?'Superlative':'Comparative',[i%2?'Comparative':'Superlative','Past tense','Plural noun'],i%2?'the + -est / the most = superlative.':'-er / more + than = comparative.')});

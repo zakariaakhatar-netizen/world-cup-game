@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Cup 22 – Adjective Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div><h1>⚽ WORLD CUP 22 – ADJECTIVE CHALLENGE</h1><small>Comparatives &amp; Superlatives · by Mr. Zakaria Akhatar</small></div>
+<nav><button id="snd">🔊</button><button id="rl">📖 Rules</button><button id="tpb">👨‍🏫 Teacher</button><button id="rs">↻ Restart</button></nav></header>
+<section id="setup"><div class="g2">
+<label>Team 1<input id="n0" maxlength="16"></label><label>Team 2<input id="n1" maxlength="16"></label>
+<label>Team 3<input id="n2" maxlength="16"></label><label>Team 4<input id="n3" maxlength="16"></label>
+<label>Number of teams<select id="nt"><option>2</option><option>3</option><option selected>4</option></select></label>
+<label>Question timer<select id="tim"><option value="0">Off</option><option value="15">15 s</option><option value="20" selected>20 s</option><option value="30">30 s</option><option value="45">45 s</option></select></label></div>
+<label>Teacher PIN (optional)<input id="pin" type="password" maxlength="8" placeholder="leave empty for no PIN"></label>
+<button id="go" class="big">▶ Kick off!</button><button id="cont" hidden>Continue saved game</button></section>
+<main id="game" hidden><div id="scores"></div><div id="turn"></div><div id="grid"></div></main>
+<div id="qm" class="modal" hidden><div class="qcard"><div class="row"><b id="tl"></b>
+<span id="clk"><span id="time">⏱ 0</span> <button id="t1">▶ Start</button><button id="t2">⏸ Stop</button><button id="t3">↺ Reset</button></span></div>
+<div id="qt"></div><div id="ans"></div><div id="ex"></div><div class="row"><button id="tp2">👨‍🏫 Teacher</button><button id="nx" class="big" hidden>Next ➜</button></div></div></div>
+<div id="banner"></div>
+<div id="win" class="modal" hidden><div class="qcard" style="text-align:center"><h1 id="wt" style="font-size:2.4rem"></h1><p>What a match!</p><button class="big" id="again">Play again</button></div></div>
+<div id="rules" class="modal" hidden><div class="qcard"><h2>How to play</h2><p>1. Teams take turns to pick a ball.<br>2. Answer the question. ⚽ Goal ball: +10. 🏆 Trophy ball: +20. Wrong answer: 0.<br>3. 🟥 Red card ball: no question, the team loses 5 points.<br>4. The teacher can start / stop the timer and change any score at any time.<br>5. When all balls are used, the highest score wins.</p><button id="rc">Close</button></div></div>
+<div id="tp" class="modal" style="z-index:55" hidden><div class="qcard"><h2>👨‍🏫 Teacher's decision</h2><div class="chips" id="chips"></div><div class="acts" id="acts"></div><button id="tc">Close</button></div></div>
+<script src="questions.js"></script><script src="game.js"></script></body></html>
